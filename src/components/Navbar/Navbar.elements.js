@@ -1,12 +1,10 @@
-/* eslint-disable import/prefer-default-export */
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaMagento } from "react-icons/fa";
+import { Container } from "../../globalStyles";
+import { colors } from "../../shared";
 
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FaMagento } from 'react-icons/fa';
-import { Container } from '../../globalStyles';
-import { colors } from '../../shared';
-
-const { bgWhite, mainBlue } = colors;
+const { bgWhite, mainBlue, mainGrey } = colors;
 
 export const Nav = styled.div`
   background: ${bgWhite};
@@ -18,18 +16,15 @@ export const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 0.5px 0.8px grey
-  
+  box-shadow: 0 0.5px 0.8px grey;
 `;
 
 export const NavbarContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   height: 80px;
-    
-  ${Container};
 
-  
+  ${Container};
 `;
 
 export const NavLogo = styled(Link)`
@@ -66,6 +61,7 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
+  width: ${({ fullwidth }) => (fullwidth ? "100%" : "")};
 
   @media screen and (max-width: 960px) {
     display: flex;
@@ -74,7 +70,7 @@ export const NavMenu = styled.ul`
     height: 90vh;
     position: absolute;
     top: 80px;
-    left: ${({ click }) => (click ? 0 : '-100%')};
+    left: ${({ click }) => (click ? 0 : "-100%")};
     opacity: 1;
     transition: all 0.5s ease;
     background: ${mainBlue};
@@ -131,12 +127,42 @@ export const NavItemBtn = styled.li`
 
 export const NavBtnLink = styled(Link)`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 8px 2rem;
   height: 100%;
   width: 100%;
   border: none;
   outline: none;
 `;
+
+export const NavBtnWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+
+  }
+`;
+
+export const NavBtnIconWrapper = styled.div`
+
+`;
+
+export const NavProfileWrapper = styled.div`
+
+`
+
+export const NavProfile = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%
+`
+
+
+

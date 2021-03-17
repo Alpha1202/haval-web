@@ -1,21 +1,46 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-dropdown/style.css';
 
 import GlobalStyle from "./globalStyles";
-import { Navbar, Footer } from "./components";
+
+
 import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/HomePage";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <Router>
       <GlobalStyle />
       <ScrollToTop />
-      <Navbar />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route exact path="/">
+          {loggedIn ? <Redirect to="/dashboard" /> : <Home />}
+        </Route>
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
-      <Footer />
+      <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
     </Router>
   );
 };

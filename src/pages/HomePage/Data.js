@@ -33,4 +33,5 @@ export const howItWorksSection = {
     alt: 'haval app',
     start: '',
     lightText: true
-}
+};
+

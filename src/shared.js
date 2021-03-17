@@ -3,7 +3,8 @@ export const colors = {
   bgWhite: '#F9F9F9',
   mainBlue: '#0066CC',
   mainBlack: '#000000',
-  mainGrey: '#666464'
+  mainGrey: '#666464',
+  secondaryGrey: '#D6D6D6'
 };
 
 export const sizes = {

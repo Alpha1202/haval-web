@@ -1,10 +1,8 @@
-/* eslint-disable object-curly-newline */
-
 import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors, sizes } from './shared';
 
-const { bgWhite, mainBlue } = colors;
+const { bgWhite, mainBlue, mainGrey } = colors;
 const { small, xMedium, medium, large } = sizes;
 
 const GlobalStyle = createGlobalStyle`
@@ -40,6 +38,8 @@ export const Button = styled.button`
   font-size: ${({ fontBig }) => (fontBig ? `${xMedium}` : `${medium}`)};
   outline: none;
   border: ${({ bordered }) => (bordered ? `2px solid ${mainBlue}` : 'none')};
+  width: ${({ width }) => (width ? `${width}` : '')};
+  height: ${({ height }) => (height ? `${height}` : '')};
   cursor: pointer;
 
   &:hover {
@@ -50,6 +50,39 @@ export const Button = styled.button`
 
   @media screen and (max-width: 960px) {
     width: 100%;
+  } ;
+`;
+
+export const Button2 = styled.button`
+  /* border-radius: 4px; */
+  /* background: ${({ active }) => (active ? mainBlue : bgWhite)}; */
+  background: ${({ primary, }) => (primary ? mainBlue : bgWhite)};
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? `${small} ${large}` : `${small} ${xMedium}`)};
+  color: ${({ active }) => (active ? mainBlue : mainGrey )};
+  font-size: ${({ fontBig }) => (fontBig ? `${xMedium}` : `${medium}`)};
+  outline: none;
+  border: none;
+  width: 100%;
+  /* width: ${({ width }) => (width ? `${width}` : '')}; */
+  height: ${({ height }) => (height ? `${height}` : '')};
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  /* background: red; */
+  /* &:hover {
+    transition: all 0.3s ease-out;
+    background: ${({ primary }) => (primary ? bgWhite : mainBlue)};
+    color: ${({ primary }) => (primary ? mainBlue : bgWhite)};
+  } */
+
+  @media screen and (max-width: 960px) {
+    width: 100%;
+    color: ${({ primary }) => (primary ? bgWhite : mainBlue)};
+    align-items: center;
+    justify-content: center;
   } ;
 `;
 
