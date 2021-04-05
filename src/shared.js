@@ -4,7 +4,8 @@ export const colors = {
   mainBlue: '#0066CC',
   mainBlack: '#000000',
   mainGrey: '#666464',
-  secondaryGrey: '#D6D6D6'
+  secondaryGrey: '#D6D6D6',
+  grey: '#E5E5E5'
 };
 
 export const sizes = {

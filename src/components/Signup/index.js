@@ -15,6 +15,7 @@ import {
 import { Button } from "../../globalStyles";
 
 const Signup = ({ closeModal }) => {
+  
   const history = useHistory();
   const [signedIn, setSignedIn] = useState(false);
 

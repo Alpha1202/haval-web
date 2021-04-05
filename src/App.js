@@ -16,6 +16,8 @@ import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/HomePage";
 import Dashboard from "./pages/Dashboard";
+import ComingSoon from './pages/ComingSoon';
+
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,11 +27,13 @@ const App = () => {
       <GlobalStyle />
       <ScrollToTop />
       <Switch>
-        <Route exact path="/">
-          {loggedIn ? <Redirect to="/dashboard" /> : <Home />}
-        </Route>
-        <Route path="/dashboard" component={Dashboard} />
+        <Route exact path="/" render={() => <Redirect to="/waiting-list" /> }/>
+        <Route exact path="/waiting-list" component={ComingSoon} />
+        <Route path="*" render={() => <Redirect to="/waiting-list" /> }/>
+        {/* <Route exact path="/"> {loggedIn ? <Redirect to="/dashboard" /> : <Home />}</Route>
+        <Route path="/dashboard" component={Dashboard} /> */}
       </Switch>
+
       <ToastContainer 
                 position="top-right"
                 autoClose={5000}

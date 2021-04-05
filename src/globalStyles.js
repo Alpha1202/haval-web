@@ -31,7 +31,7 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   border-radius: 4px;
-  background: ${({ primary, }) => (primary ? mainBlue : bgWhite)};
+  background: ${({ primary }) => (primary ? mainBlue : bgWhite)};
   white-space: nowrap;
   padding: ${({ big }) => (big ? `${small} ${large}` : `${small} ${xMedium}`)};
   color: ${({ primary }) => (primary ? bgWhite : mainBlue)};
